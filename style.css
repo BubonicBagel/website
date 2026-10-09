@@ -1,0 +1,22 @@
+/* body {
+  background-color: #1e1e2e;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+} */
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+body {
+  background-image: url("images/AndyBoba.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
