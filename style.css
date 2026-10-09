@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #1e1e2e;
   color: #ffffff;
   font-family: Arial, sans-serif;
@@ -6,17 +6,77 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
-} */
+}
 
 h1 {
   font-size: 3rem;
   text-align: center;
 }
 
-body {
+.h1small {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bg-image {
   background-image: url("images/AndyBoba.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+
+.content {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.content2 {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  background: #5865f2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background: #4752c4;
+}
+
+.button-wrapper {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.main-photo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
 }
