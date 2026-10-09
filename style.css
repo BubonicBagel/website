@@ -22,6 +22,23 @@ p {
   text-align: center;
 }
 
+nav a {
+  color: #8ab4ff;            /* normal link */
+}
+
+nav a:visited {
+  color: #c4a7ff;            /* link you've already visited */
+}
+
+nav a:hover {
+  color: #ffffff;            /* mouse over it */
+  text-decoration: underline;
+}
+
+nav a:active {
+  color: #ff9f43;            /* while it's being clicked */
+}
+
 nav {
   display: flex;
   flex-direction: column;
