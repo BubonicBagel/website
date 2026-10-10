@@ -23,20 +23,20 @@ p {
 }
 
 nav a {
-  color: #8ab4ff;            /* normal link */
+  color: #8ab4ff;
 }
 
 nav a:visited {
-  color: #c4a7ff;            /* link you've already visited */
+  color: #c4a7ff;
 }
 
 nav a:hover {
-  color: #ffffff;            /* mouse over it */
+  color: #ffffff;
   text-decoration: underline;
 }
 
 nav a:active {
-  color: #ff9f43;            /* while it's being clicked */
+  color: #ff9f43;
 }
 
 nav {
@@ -127,7 +127,7 @@ nav {
   font-size: 1.3rem;
   text-align: center;
 }
-/**/
+
 .clip video,
 .clip iframe {
   display: block;
@@ -159,28 +159,31 @@ nav {
   background: #4752c4;
 }
 
+/* home page: background image */
 body.theme-home {
-  background-color: #1e1e2e;   /* dark wine; change to any color you like */
+  background-color: #1e1e2e;
   background-image: url("/images/lotr3.jpg");
-  background-size: cover;   /* size of each tile */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+/* wife page: background image */
 body.theme-wife {
-  background-color: #1f5c94;   /* dark wine; change to any color you like */
+  background-color: #1f5c94;
   background-image: url("/images/flowers.jpg");
-  background-size: contain;   /* size of each tile */
+  background-size: contain;
   background-position: center;
   background-repeat: repeat;
   background-attachment: fixed;
 }
 
+/* clips page: background image */
 body.theme-clips {
-  background-color: #000000;   /* dark wine; change to any color you like */
+  background-color: #000000;
   background-image: url("/images/fire.jpg");
-  background-size: cover;   /* size of each tile */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -190,7 +193,7 @@ body.theme-clips {
 body.theme-minecraft {
   background-color: #1b2a1b;
   background-image: url("/images/creeper.jpg");
-  background-size: 128px 128px;   /* size of each tile */
+  background-size: 128px 128px;
   background-position: top left;
   background-repeat: repeat;
   background-attachment: fixed;
