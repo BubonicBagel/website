@@ -158,3 +158,40 @@ nav {
 .music-toggle:hover {
   background: #4752c4;
 }
+
+body.theme-home {
+  background-color: #1e1e2e;   /* dark wine; change to any color you like */
+  background-image: url("/images/lotr3.jpg");
+  background-size: cover;   /* size of each tile */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.theme-wife {
+  background-color: #0d4e28;   /* dark wine; change to any color you like */
+  background-image: url("/images/flowers.jpg");
+  background-size: contain;   /* size of each tile */
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+body.theme-clips {
+  background-color: #000000;   /* dark wine; change to any color you like */
+  background-image: url("/images/fire.jpg");
+  background-size: cover;   /* size of each tile */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Minecraft page: background image */
+body.theme-minecraft {
+  background-color: #1b2a1b;
+  background-image: url("/images/creeper.jpg");
+  background-size: 128px 128px;   /* size of each tile */
+  background-position: top left;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
