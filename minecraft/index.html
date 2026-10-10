@@ -31,7 +31,65 @@
         <a href="/clips/">Epic Clips</a>
       </nav>
     </div>
-        <script>
+      <button id="music-toggle" class="music-toggle" type="button">🔇 Play music</button>
+
+      <script>
+        // add or remove tracks here
+        const tracks = [
+          '/audio/themeregea.mp3',
+          '/audio/themefunk.mp3'
+        ];
+
+        const bgm = new Audio();
+        bgm.volume = 0.3;
+        const btn = document.getElementById('music-toggle');
+        let userPaused = false;
+        let last = -1;
+
+        function pickTrack() {
+          let i;
+          do { i = Math.floor(Math.random() * tracks.length); }
+          while (tracks.length > 1 && i === last);   // don't repeat the same track twice in a row
+          last = i;
+          return tracks[i];
+        }
+
+        function updateButton() {
+          btn.textContent = bgm.paused ? '🔇 Play music' : '🔊 Music on';
+        }
+        bgm.addEventListener('play', updateButton);
+        bgm.addEventListener('pause', updateButton);
+
+        async function tryPlay() {
+          try { await bgm.play(); } catch (e) { /* blocked until the visitor interacts */ }
+          updateButton();
+        }
+
+        // when a track ends, move on to another random one
+        bgm.addEventListener('ended', () => {
+          bgm.src = pickTrack();
+          tryPlay();
+        });
+
+        // choose the first track and try to autoplay
+        bgm.src = pickTrack();
+        tryPlay();
+
+        // otherwise start on the first click or keypress
+        function startOnInteraction() {
+          if (bgm.paused && !userPaused) tryPlay();
+        }
+        document.addEventListener('click', startOnInteraction, { once: true });
+        document.addEventListener('keydown', startOnInteraction, { once: true });
+
+        // play/pause button
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (bgm.paused) { userPaused = false; bgm.play(); }
+          else { userPaused = true; bgm.pause(); }
+        });
+      </script>
+      <script>
       document.getElementById('wl-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const msg = document.getElementById('wl-msg');
