@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minecraft!</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="content">
+      <h1>Come play Minecraft with me!</h1>
+      <img src="/images/AndyBoba.jpg" alt="Description of the picture" class="main-photo">
+      <p>Enter your Minecraft username below to request a spot on the whitelist</p>
+      <form id="wl-form" class="wl-form">
+        <input name="username" placeholder="Minecraft username" required maxlength="16" pattern="[A-Za-z0-9_]{3,16}" autocomplete="off">
+        <input name="website" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="button-wrapper">
+          <button type="submit" class="button">Request whitelist</button>
+        </div>
+        <p id="wl-msg"></p>
+      </form>
+      <p>Join the server at mc.bubonicbagel.com</p>
+    </div>
+    <div class="content2">
+      <h1 class="h1small">Navigate</h1>
+      <p>Find out more about me below!</p>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/mywife/">My Wife</a>
+        <!--<a href="/minecraft/">Minecraft Server</a>-->
+      </nav>
+    </div>
+        <script>
+      document.getElementById('wl-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msg = document.getElementById('wl-msg');
+        msg.textContent = 'Sending...';
+        try {
+          const r = await fetch('https://api.bubonicbagel.com/submit', {
+            method: 'POST',
+            body: new FormData(e.target)
+          });
+          const d = await r.json();
+          msg.textContent = r.ok ? "Got it! I'll get you whitelisted soon." : (d.error || 'Something went wrong.');
+          if (r.ok) e.target.reset();
+        } catch {
+          msg.textContent = 'Could not reach the server. Try again later.';
+        }
+      });
+    </script>
+    <script data-goatcounter="https://bubonicbagel.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+  </body>
+</html>

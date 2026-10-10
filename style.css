@@ -1,0 +1,120 @@
+body {
+  background-color: #1e1e2e;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.h1small {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+nav a {
+  color: #8ab4ff;            /* normal link */
+}
+
+nav a:visited {
+  color: #c4a7ff;            /* link you've already visited */
+}
+
+nav a:hover {
+  color: #ffffff;            /* mouse over it */
+  text-decoration: underline;
+}
+
+nav a:active {
+  color: #ff9f43;            /* while it's being clicked */
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bg-image {
+  background-image: url("images/AndyBoba.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.content {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.content2 {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  background: #5865f2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background: #4752c4;
+}
+
+.button-wrapper {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.main-photo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.wl-form {
+  text-align: center;
+}
+
+.wl-form input[name="username"] {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #5865f2;
+  background: #2a2a3c;
+  color: #fff;
+  width: 80%;
+  max-width: 320px;
+}
+
+.wl-form button.button {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
