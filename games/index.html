@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Games</title>
+    <link rel="stylesheet" href="/style.css?v=2">
+    <script src="/menu.js?v=2" defer></script>
+  </head>
+  <body class="theme-games">
+    <div class="content">
+      <h1>Games</h1>
+      <p>Pick a game to play.</p>
+
+      <!-- add a button per game: data-src is the proxied URL -->
+      <div class="game-list">
+        <button type="button" class="game-card" data-src="https://tradle.bubonicbagel.com/en/games/tradle">
+          <strong>Tradle</strong>
+          <span>Guess the country from what it exports</span>
+        </button>
+      </div>
+
+      <div id="game-wrap" class="game-wrap" hidden>
+        <p><a id="game-newtab" class="game-newtab" href="#" target="_blank" rel="noopener noreferrer">Not loading? Open in a new tab</a></p>
+        <iframe id="game-frame" class="game-frame" title="Game"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                allow="fullscreen"></iframe>
+      </div>
+    </div>
+
+    <button id="music-toggle" class="music-toggle" type="button">🔇 Play music</button>
+    <script>
+      // add or remove tracks here
+      const tracks = [
+        '/audio/themehiphop.mp3',
+        '/audio/themefunk.mp3'
+      ];
+
+      const bgm = new Audio();
+      bgm.volume = 0.3;
+      const btn = document.getElementById('music-toggle');
+      let userPaused = false;
+      let last = -1;
+
+      function pickTrack() {
+        let i;
+        do { i = Math.floor(Math.random() * tracks.length); }
+        while (tracks.length > 1 && i === last);   // don't repeat the same track twice in a row
+        last = i;
+        return tracks[i];
+      }
+
+      function updateButton() {
+        btn.textContent = bgm.paused ? '🔇 Play music' : '🔊 Music on';
+      }
+      bgm.addEventListener('play', updateButton);
+      bgm.addEventListener('pause', updateButton);
+
+      async function tryPlay() {
+        try { await bgm.play(); } catch (e) { /* blocked until the visitor interacts */ }
+        updateButton();
+      }
+
+      // when a track ends, move on to another random one
+      bgm.addEventListener('ended', () => {
+        bgm.src = pickTrack();
+        tryPlay();
+      });
+
+      // choose the first track and try to autoplay
+      bgm.src = pickTrack();
+      tryPlay();
+
+      // otherwise start on the first click or keypress
+      function startOnInteraction() {
+        if (bgm.paused && !userPaused) tryPlay();
+      }
+      document.addEventListener('click', startOnInteraction, { once: true });
+      document.addEventListener('keydown', startOnInteraction, { once: true });
+
+      // play/pause button
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (bgm.paused) { userPaused = false; bgm.play(); }
+        else { userPaused = true; bgm.pause(); }
+      });
+    </script>
+    <script>
+      // load the chosen game into the frame
+      const wrap = document.getElementById('game-wrap');
+      const frame = document.getElementById('game-frame');
+      const newTab = document.getElementById('game-newtab');
+      document.querySelectorAll('.game-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          frame.src = card.dataset.src;
+          newTab.href = card.dataset.src;
+          wrap.hidden = false;
+          document.querySelectorAll('.game-card').forEach((c) => c.classList.toggle('active', c === card));
+          wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    </script>
+    <script data-goatcounter="https://bubonicbagel.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+  </body>
+</html>
