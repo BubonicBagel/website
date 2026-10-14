@@ -4,7 +4,8 @@
     { href: '/',           label: 'Home' },
     { href: '/mywife/',    label: 'My Wife' },
     { href: '/minecraft/', label: 'Minecraft Server' },
-    { href: '/clips/',     label: 'Epic Clips' }
+    { href: '/clips/',     label: 'Epic Clips' },
+    { href: '/games/',     label: 'Games' }
   ];
 
   // hamburger button
